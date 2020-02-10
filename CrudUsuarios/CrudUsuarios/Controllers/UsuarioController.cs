@@ -16,6 +16,7 @@ namespace CrudUsuarios.Controllers
             _context = context;
         }
 
+
         [HttpGet("listar")]
         public List<Usuario> Listar()
         {
@@ -24,17 +25,16 @@ namespace CrudUsuarios.Controllers
         }
 
 
-        [HttpGet("obter")]
-        public Usuario Obter(int Id)
+        [HttpGet("pesquisar")]
+        public Usuario Pesquisar(int Id)
         {
             var usuario = _context.Usuarios.Find(Id);
             return usuario;
         }
-
-
+        
 
         [HttpPost("inserir")]
-        public string Inserir(Usuario usuario)
+        public string Inserir([FromBody] Usuario usuario)
         {
             if(usuario != null)
             {
@@ -49,7 +49,7 @@ namespace CrudUsuarios.Controllers
 
 
         [HttpPost("atualizar")]
-        public string Atualizar(Usuario usuario)
+        public string Atualizar([FromBody] Usuario usuario)
         {
             //var usuario = _context.Usuarios.Find(_usuario.Id);
             if(usuario != null)
@@ -64,7 +64,7 @@ namespace CrudUsuarios.Controllers
 
 
         [HttpDelete("deletar")]
-        public string Deletar(Usuario _usuario)
+        public string Deletar([FromBody] Usuario _usuario)
         {
 
             var usuario = _context.Usuarios.Find(_usuario.Id);
