@@ -3,11 +3,14 @@ using System.Linq;
 using CrudUsuarios.Models.Context;
 using CrudUsuarios.Models.Entity;
 using Microsoft.AspNetCore.Mvc;
+using System.Web.Http.Cors;
 
 namespace CrudUsuarios.Controllers
 {
     [Route("api/usuario")]
     [ApiController]
+
+    //[EnableCors(origins: "http://localhost:4200/", headers: "*", methods: "*")]
     public class UsuarioController : Controller
     {
         private readonly Context _context;
